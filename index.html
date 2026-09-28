@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎨🐣 雜誌9月號 U8 What to Know About the Melamine Sponge</title>
+<style>
+:root{
+  --mBlue:#E2F1FF; --mPurple:#F3E8FF; --mPink:#FCE7F3; --mYellow:#FFFBEB;
+  --mGreen:#ECFDF5; --coffee:#4A3E3D; --coffeeLt:#6B5A59; --bg:#FFFDF9;
+  --ok:#3F9D6B; --no:#C2557A;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--coffee);
+ font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+ line-height:1.75;font-size:16px}
+#fw{position:fixed;inset:0;pointer-events:none;z-index:50}
+header{position:sticky;top:0;z-index:40;background:var(--mBlue);
+ border-bottom:2px solid #cfe4f7;display:flex;align-items:center;
+ justify-content:space-between;gap:10px;padding:8px 14px}
+header h1{font-size:1.02rem;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{cursor:pointer;border:2px solid #d9c9e8;background:var(--mPurple);color:var(--coffee);
+ border-radius:14px;padding:7px 14px;font-size:.95rem;font-family:inherit;transition:.18s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #9b7bc4;outline-offset:2px}
+#menu{position:absolute;right:10px;top:52px;z-index:41;background:#fff;border:2px solid #e4d6f2;
+ border-radius:18px;padding:10px;box-shadow:0 10px 28px rgba(74,62,61,.18);display:none;min-width:250px}
+#menu.open{display:block}
+#menu .btn{display:block;width:100%;text-align:left;margin:6px 0}
+main{max-width:960px;margin:0 auto;padding:16px 14px 80px}
+section{display:none}
+section.active{display:block}
+h2{font-size:1.25rem;border-left:8px solid #d9c9e8;padding-left:10px;margin:26px 0 12px}
+h3{font-size:1.05rem;margin:20px 0 8px;color:#5c4a63}
+.card{background:#fff;border:2px solid #f0e6f7;border-radius:18px;padding:14px;margin:12px 0}
+.q{background:var(--mYellow);border:2px solid #f3e6c5;border-radius:16px;padding:13px;margin:14px 0}
+.q p.stem{font-weight:700;margin:.2em 0 .6em}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:2px solid #e9dcf5;
+ border-radius:12px;padding:8px 12px;margin:5px 0;cursor:pointer;font-family:inherit;font-size:.97rem;transition:.15s}
+.opt:hover{transform:translateY(-2px);background:var(--mPurple)}
+.opt.sel{background:var(--mPink);border-color:#f0b9d3}
+.opt.right{background:var(--mGreen);border-color:#9ed9b8}
+.opt.wrong{background:var(--mPink);border-color:#e39ab9}
+.sol{display:none;margin-top:10px;background:var(--mGreen);border:2px dashed #a9dcc1;
+ border-radius:14px;padding:12px;animation:open .45s ease}
+.sol.show{display:block}
+@keyframes open{from{opacity:0;transform:rotateX(-70deg);transform-origin:top}to{opacity:1;transform:rotateX(0)}}
+.sol b{color:#2f7a53}
+.blank{display:inline-block;min-width:110px;border:none;border-bottom:2px solid #8fbfe8;
+ background:var(--mBlue);border-radius:6px 6px 0 0;padding:2px 6px;font-family:inherit;font-size:.95rem;color:var(--coffee)}
+.blank.right{background:var(--mGreen);border-bottom-color:#4aa578}
+.blank.wrong{background:var(--mPink);border-bottom-color:#d4779f}
+select.dd{background:var(--mPurple);border:2px solid #d9c9e8;border-radius:10px;padding:3px 6px;font-family:inherit;font-size:.95rem;color:var(--coffee)}
+.num{color:#8a6fae;font-weight:700;font-size:.85rem;vertical-align:super}
+mark{background:#FFF3B0;padding:0 2px;border-radius:4px}
+.kw{color:#7a4fa8;font-weight:700}
+.spk{cursor:pointer;border:none;background:transparent;font-size:1rem;padding:0 3px}
+#score{display:none;position:sticky;top:50px;z-index:30;background:var(--mGreen);
+ border:2px solid #a9dcc1;border-radius:14px;padding:8px 12px;margin:8px 0;font-weight:700}
+#score.show{display:block}
+.pop{display:inline-block;animation:pop .5s}
+@keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.6)}100%{transform:scale(1)}}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--coffee);
+ color:#fff;border-radius:16px;padding:10px 18px;z-index:60;display:none;max-width:90%}
+.tabsel{background:var(--mPink);border-color:#f0b9d3}
+.wbwrap{position:sticky;top:52px;z-index:20;background:var(--mYellow);border:2px solid #f3e6c5;border-radius:16px;margin:10px 0}
+.wbhead{cursor:pointer;padding:8px 12px;font-weight:700;display:flex;justify-content:space-between}
+.wbbody{max-height:170px;overflow-y:auto;padding:8px 12px;display:flex;flex-wrap:wrap;gap:6px}
+.wbbody.hide{display:none}
+.chip{cursor:pointer;background:#fff;border:2px solid #e9dcf5;border-radius:12px;padding:4px 10px;font-size:.93rem;transition:.15s}
+.chip:hover{transform:translateY(-2px)}
+.chip.sel{background:var(--mPink);border-color:#f0b9d3}
+.chip.used{opacity:.35;pointer-events:none}
+.slot{display:inline-block;min-width:130px;border-bottom:2px solid #8fbfe8;background:var(--mBlue);
+ border-radius:6px 6px 0 0;padding:2px 8px;cursor:pointer;min-height:1.7em}
+.slot.right{background:var(--mGreen);border-bottom-color:#4aa578}
+.slot.wrong{background:var(--mPink);border-bottom-color:#d4779f}
+.zh{color:#2f7a53;font-size:.9rem}
+.seq{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.seqitem{cursor:pointer;background:#fff;border:2px solid #e9dcf5;border-radius:12px;padding:8px 12px;transition:.15s}
+.seqitem:hover{transform:translateY(-2px)}
+.seqitem.picked{background:var(--mPurple);border-color:#c9aee4}
+.board{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:10px 0}
+.sq{border:2px solid #e9dcf5;border-radius:12px;padding:8px 4px;text-align:center;font-size:.8rem;background:#fff}
+.sq.here{background:var(--mPink);border-color:#f0b9d3;font-weight:700}
+.sq.done{background:var(--mGreen);border-color:#9ed9b8}
+textarea{width:100%;font-family:inherit;font-size:.97rem;border:2px solid #cfe4f7;border-radius:12px;padding:8px;background:var(--mBlue);color:var(--coffee)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:8px 0}
+th,td{border:1px solid #e4d6f2;padding:6px 8px;text-align:left}
+th{background:var(--mPurple)}
+@media(max-width:600px){body{font-size:15px}main{padding:12px 10px 70px}
+ h2{font-size:1.1rem}.board{grid-template-columns:repeat(4,1fr)}.wbbody{max-height:130px}
+ header h1{font-size:.9rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="fw"></canvas>
+<header>
+  <h1>🎨🐣 雜誌9月號 U8　What to Know About the Melamine Sponge</h1>
+  <button class="btn" id="menuBtn" onclick="toggleMenu()">☰ 選單</button>
+</header>
+<div id="menu">
+  <button class="btn" onclick="go('practice')">💡 字彙對對碰</button>
+  <button class="btn" onclick="go('cloze')">📝 克漏字與填空</button>
+  <button class="btn" onclick="go('review')">📚 Reading 架構總複習</button>
+  <button class="btn" onclick="go('board')">🎲 摘要大富翁</button>
+  <button class="btn" onclick="go('gias')">✍️ GIAS 綜合練習與混合題</button>
+  <button class="btn" onclick="go('life')">🧽 生活應用 Sponge Lab</button>
+  <button class="btn" onclick="go('focus')">📐 Language in Focus</button>
+  <button class="btn" onclick="go('analysis')">🧭 文體與組織分析</button>
+  <hr>
+  <button class="btn" onclick="toggleScore()">🏆 顯示／隱藏計分列</button>
+  <button class="btn" onclick="wipe()">🧹 清除紀錄，重新開始</button>
+</div>
+<main>
+<div id="score">🏆 Kahoot 積分：<span id="pts" class="pop">0</span> 分　|　🔥 連對：<span id="streak">0</span>　|　✅ 答對 <span id="nok">0</span> / 作答 <span id="ntot">0</span></div>
+
+<!-- ============ TAB 1 ============ -->
+<section id="practice" class="active">
+  <h2>💡 字彙對對碰</h2>
+  <div id="catbar" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+  <div class="wbwrap">
+    <div class="wbhead" onclick="document.getElementById('wbbody').classList.toggle('hide')">
+      <span>🗃 Word Bank（點選詞彙 → 再點空格填入；再點空格可退回）</span><span>▲▼</span>
+    </div>
+    <div class="wbbody" id="wbbody"></div>
+  </div>
+  <div id="qlist"></div>
+  <button class="btn" onclick="checkPractice()">✓ Check answers</button>
+</section>
+
+<!-- ============ TAB 2 ============ -->
+<section id="cloze">
+  <h2>📝 克漏字與填空</h2>
+  <p class="zh">每題 4 分，滿分 100 分，忽略大小寫。</p>
+  <div class="card" id="clozeText"></div>
+  <button class="btn" onclick="checkCloze()">✓ Check answers</button>
+  <button class="btn" onclick="toggleSol('clozeSol')">📖 參考解答：</button>
+  <div class="sol" id="clozeSol">
+    <h3>參考解答的句子（完整課文，答案以粗體標示）</h3>
+    <p>Do you have trouble removing dirty <b>spots</b>（汙點；汙漬）? Try using a melamine sponge! The sponge feels soft, but it works like <b>fine</b>（細緻的；顆粒微小的）sandpaper. The melamine sponge has many tiny, hard parts inside. Gently rub the sponge over the dirty spot. These tiny, hard parts can get into small cracks on a <b>surface</b>（表面）and take the <b>dirt</b>（灰塵；塵垢）out. People often use the sponge on shoes, tables, walls, and sinks. <button class="spk" onclick="readSlow('Do you have trouble removing dirty spots? Try using a melamine sponge! The sponge feels soft, but it works like fine sandpaper. The melamine sponge has many tiny, hard parts inside. Gently rub the sponge over the dirty spot. These tiny, hard parts can get into small cracks on a surface and take the dirt out. People often use the sponge on shoes, tables, walls, and sinks.')">🔊</button></p>
+    <p>The melamine sponge only needs a little water—no soap or cleaner is needed. It works especially well against <b>stubborn</b> stains（它對頑強的汙漬特別有效）. For example, black <b>marks</b> on shoes and fingerprints on walls（鞋子上的黑色汙漬和牆上的指紋）may disappear after just a few <b>wipes</b>（可能只要擦拭幾下就會消失）. The sponge is <b>firm</b> enough to be cut into small pieces without <b>falling apart</b>（這種海綿夠結實，可以切成小塊而不會散開）. That&rsquo;s why it can reach corners that cloths and regular sponges cannot. <button class="spk" onclick="readSlow('The melamine sponge only needs a little water. No soap or cleaner is needed. It works especially well against stubborn stains. For example, black marks on shoes and fingerprints on walls may disappear after just a few wipes. The sponge is firm enough to be cut into small pieces without falling apart. That is why it can reach corners that cloths and regular sponges cannot.')">🔊</button></p>
+    <p>For these reasons, many families <b>see</b>（視…為…；認為…）the melamine sponge as a <b>handy</b> helper around the house（家中的方便好幫手）. However, the sponge is not perfect—it also has its limits. <button class="spk" onclick="readSlow('For these reasons, many families see the melamine sponge as a handy helper around the house. However, the sponge is not perfect. It also has its limits.')">🔊</button></p>
+    <p>Even though melamine sponges are popular, they aren&rsquo;t <b>suitable</b> for every <b>material</b>（並非每一種材料都適合使用它）. Their rough <b>(E) texture</b> can damage <b>shiny</b>（有光澤的）surfaces. They can leave <b>(D) scratches</b> on screens, car paint, and non-stick pans. Because of this, it&rsquo;s <b>advisable</b> to test the sponge on a small area（比較明智的做法是先在小範圍測試科技海綿）before using it on the whole surface. <button class="spk" onclick="readSlow('Even though melamine sponges are popular, they are not suitable for every material. Their rough texture can damage shiny surfaces. They can leave scratches on screens, car paint, and non-stick pans. Because of this, it is advisable to test the sponge on a small area before using it on the whole surface.')">🔊</button></p>
+    <p>Another limit is that the sponge doesn&rsquo;t usually last very long. As people use it, the sponge <b>gradually</b> breaks into smaller pieces（海綿會逐漸分解成更小的碎片）. This happens because the tiny, hard parts inside <b>come off</b> during cleaning（這是因為海綿內部細小而堅硬的部分會在清潔時脫落）. <button class="spk" onclick="readSlow('Another limit is that the sponge does not usually last very long. As people use it, the sponge gradually breaks into smaller pieces. This happens because the tiny, hard parts inside come off during cleaning.')">🔊</button></p>
+    <p>There is also a safety concern to <b>keep in mind</b>（還有一項安全問題需要留心）. Hot water and oil can make the sponge <b>break down</b> faster（熱水和油會使科技海綿分解得更快）. When this happens, the sponge may give off <b>harmful</b>（有害的）<b>(B) particles</b>. For this reason, the sponge should not be used on things like cups and bowls. After cleaning, you should clean the surface again with water to wash away any small pieces. <button class="spk" onclick="readSlow('There is also a safety concern to keep in mind. Hot water and oil can make the sponge break down faster. When this happens, the sponge may give off harmful particles. For this reason, the sponge should not be used on things like cups and bowls. After cleaning, you should clean the surface again with water to wash away any small pieces.')">🔊</button></p>
+    <p>Every cleaning tool has its <b>(C) pros and cons</b>, and the melamine sponge is no <b>(A) exception</b>. So, use the sponge wisely to get the best results. <button class="spk" onclick="readSlow('Every cleaning tool has its pros and cons, and the melamine sponge is no exception. So, use the sponge wisely to get the best results.')">🔊</button></p>
+    <h3>25 格答案速查表</h3>
+    <table><tr><th>格</th><th>答案</th><th>格</th><th>答案</th><th>格</th><th>答案</th></tr>
+    <tr><td>1</td><td>spots</td><td>10</td><td>see</td><td>19</td><td>come off</td></tr>
+    <tr><td>2</td><td>fine</td><td>11</td><td>handy</td><td>20</td><td>keep in mind</td></tr>
+    <tr><td>3</td><td>surface</td><td>12</td><td>suitable</td><td>21</td><td>break down</td></tr>
+    <tr><td>4</td><td>dirt</td><td>13</td><td>material</td><td>22</td><td>harmful</td></tr>
+    <tr><td>5</td><td>stubborn</td><td>14</td><td>(E) texture</td><td>23</td><td>(B) particles</td></tr>
+    <tr><td>6</td><td>marks</td><td>15</td><td>shiny</td><td>24</td><td>(C) pros and cons</td></tr>
+    <tr><td>7</td><td>wipes</td><td>16</td><td>(D) scratches</td><td>25</td><td>(A) exception</td></tr>
+    <tr><td>8</td><td>firm</td><td>17</td><td>advisable</td><td></td><td></td></tr>
+    <tr><td>9</td><td>falling apart</td><td>18</td><td>gradually</td><td></td><td></td></tr></table>
+  </div>
+</section>
+<!-- ============ TAB 3 ============ -->
+<section id="review">
+  <h2>📚 Reading 架構總複習</h2>
+
+  <h3>一、Reading</h3>
+  <div class="card">
+    <button class="btn" onclick="readSlow(document.getElementById('day17').innerText)">🔊 Sep. 17</button>
+    <button class="btn" onclick="readSlow(document.getElementById('day18').innerText)">🔊 Sep. 18</button>
+    <button class="btn" onclick="stopRead()">⏹ 停止</button>
+    <p style="font-weight:700">UNIT 8　科技與生活　9/17–9/18　★★★<br>What to Know About the Melamine Sponge<br><span class="zh">一擦就乾淨？看懂科技海綿的神奇功效</span></p>
+    <div id="day17">
+      <p><b>Sep. 17　¶1</b>　<mark>Do you have trouble removing dirty spots?</mark> <mark>Try using</mark> a melamine sponge! The sponge <span class="kw">feels soft, but it works like fine sandpaper</span>. The melamine sponge has many <span class="kw">tiny, hard parts</span> inside. Gently rub the sponge over the dirty spot. <mark>These tiny, hard parts</mark> can get into small <span class="kw">cracks</span> on a <span class="kw">surface</span> and take the <span class="kw">dirt</span> out. People often use the sponge on shoes, tables, walls, and sinks.</p>
+      <p><b>¶2</b>　The melamine sponge only needs a little water—no soap or cleaner is needed. It works especially well against <span class="kw">stubborn</span> stains. <mark>For example</mark>, black marks on shoes and fingerprints on walls may disappear after just a few <span class="kw">wipes</span>. The sponge is <span class="kw">firm enough to be cut</span> into small pieces without falling apart. <mark>That's why</mark> it can reach corners that cloths and regular sponges cannot.</p>
+      <p><b>¶3</b>　<mark>For these reasons</mark>, many families see the melamine sponge as a <span class="kw">handy</span> helper around the house. <mark>However</mark>, the sponge is not perfect—it also has its <span class="kw">limits</span>.</p>
+    </div>
+    <div id="day18">
+      <p><b>Sep. 18　¶1</b>　<mark>Even though</mark> melamine sponges are popular, they aren't <span class="kw">suitable</span> for every <span class="kw">material</span>. Their rough <span class="kw">texture</span> can damage <span class="kw">shiny</span> surfaces. They can leave <span class="kw">scratches</span> on screens, car paint, and non-stick pans. <mark>Because of this</mark>, it's <span class="kw">advisable</span> to test the sponge on a small area before using it on the whole surface.</p>
+      <p><b>¶2</b>　<mark>Another limit is that</mark> the sponge doesn't usually last very long. As people use it, the sponge <span class="kw">gradually</span> breaks into smaller pieces. <mark>This happens because</mark> the tiny, hard parts inside come off during cleaning.</p>
+      <p><b>¶3</b>　<mark>There is also a safety concern</mark> to keep in mind. Hot water and oil can make the sponge <span class="kw">break down</span> faster. When this happens, the sponge may <span class="kw">give off harmful particles</span>. <mark>For this reason</mark>, the sponge should not be used on things like cups and bowls. After cleaning, you should clean the surface again with water to wash away any small pieces.</p>
+      <p><b>¶4</b>　<mark>Every cleaning tool has its pros and cons</mark>, and the melamine sponge is <span class="kw">no exception</span>. <mark>So</mark>, use the sponge wisely to get the best results.</p>
+    </div>
+  </div>
+
+  <h3>二、架構偵察</h3>
+  <div id="genreQs"></div>
+
+  <div class="q">
+    <p class="stem">📐 Sep. 17 結構排序：請依序點選，排出這一天的組織順序。</p>
+    <div class="seq" id="seqA"></div>
+    <button class="btn" onclick="checkSeq('A')">✓ 檢查</button>
+    <button class="btn" onclick="resetSeq('A')">↺ 重排</button>
+    <button class="btn" onclick="toggleSol('solSeqA')">📖 參考解答：</button>
+    <div class="sol" id="solSeqA"><b>正解順序：</b>①→②→③→④。Sep. 17 走「問題導入＋建議 → 原理說明（外軟內硬、鑽入裂縫） → 優點與例證（只要水、對付頑垢、可裁切） → 小結並用 However 預告限制」。<br><b>解題程序：</b>抓訊號詞 Do you have trouble…? ／ These tiny, hard parts ／ For example ／ That's why ／ For these reasons ／ However。<br><b>常見錯誤：</b>把「優點段」排在「原理段」之前——但 These tiny, hard parts 是回指前一句的內部構造，沒有原理段它就沒有指涉對象。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">🕒 Sep. 18 限制排序（4 項）：請依課文出現順序點選。</p>
+    <div class="seq" id="seqB"></div>
+    <button class="btn" onclick="checkSeq('B')">✓ 檢查</button>
+    <button class="btn" onclick="resetSeq('B')">↺ 重排</button>
+    <button class="btn" onclick="toggleSol('solSeqB')">📖 參考解答：</button>
+    <div class="sol" id="solSeqB"><b>正解順序：</b>材質不相容（會刮傷亮面）→ 不耐用（逐漸碎裂）→ 安全疑慮（釋出有害微粒）→ 總結 pros and cons 並給建議。<br><b>解題程序：</b>三項限制用 Even though → Another limit is that → There is also a safety concern 依序加碼，風險等級由「外觀受損」升到「健康疑慮」，屬遞進式排序；末段才出現評價性的 Every cleaning tool…。<br><b>常見錯誤：</b>把安全疑慮排第一——它由 also 標記，必然不是第一項。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">🧩 摘要重組（Sep. 17）：請依「主題句／支持論點／結論句」的順序點選三句。</p>
+    <div class="seq" id="seq1"></div>
+    <button class="btn" onclick="checkSeq('1')">✓ 檢查</button>
+    <button class="btn" onclick="resetSeq('1')">↺ 重排</button>
+    <button class="btn" onclick="toggleSol('solSeq1')">📖 參考解答：</button>
+    <div class="sol" id="solSeq1"><b>摘要：</b>A melamine sponge feels soft, but it works like fine sandpaper. Its tiny, hard parts get into small cracks and take the dirt out. For these reasons, many families see it as a handy helper around the house. <button class="spk" onclick="readWord('A melamine sponge feels soft, but it works like fine sandpaper. Its tiny, hard parts get into small cracks and take the dirt out. For these reasons, many families see it as a handy helper around the house.')">🔊</button><br>（第 1 句＝主題句；第 2 句＝支持論點；第 3 句＝結論句）<br><b>判斷程序：</b>含「定義／反差」的句子為主題句；說明運作機制的句子為支持論點；帶 For these reasons 的評價句為結論句。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">🧩 摘要重組（Sep. 18）：請依「主題句／支持論點／結論句」的順序點選三句。</p>
+    <div class="seq" id="seq2"></div>
+    <button class="btn" onclick="checkSeq('2')">✓ 檢查</button>
+    <button class="btn" onclick="resetSeq('2')">↺ 重排</button>
+    <button class="btn" onclick="toggleSol('solSeq2')">📖 參考解答：</button>
+    <div class="sol" id="solSeq2"><b>摘要：</b>Melamine sponges aren't suitable for every material. They can damage shiny surfaces, they don't last very long, and they may give off harmful particles. Every cleaning tool has its pros and cons, so use the sponge wisely. <button class="spk" onclick="readWord(&quot;Melamine sponges aren't suitable for every material. They can damage shiny surfaces, they don't last very long, and they may give off harmful particles. Every cleaning tool has its pros and cons, so use the sponge wisely.&quot;)">🔊</button><br>（第 1 句＝主題句；第 2 句＝支持論點；第 3 句＝結論句）<br><b>判斷程序：</b>先抓全段共同主張（不是每種材質都適用），三項限制合併成一句支持論點，最後以 pros and cons 的評價與建議收尾。</div>
+  </div>
+
+  <h3>三、四層次思考（English A2–B1／中文解說）</h3>
+  <div id="fourQs"></div>
+
+  <h3>四、學測題型</h3>
+  <div id="gsatQs"></div>
+
+  <div class="q">
+    <p class="stem">🈺 翻譯 1：這種海綿夠結實，可以切成小塊而不會散掉。</p>
+    <textarea id="tr1" rows="2"></textarea>
+    <button class="btn" onclick="toggleSol('solTr1')">📖 參考解答：</button>
+    <div class="sol" id="solTr1">The sponge is firm enough to be cut into small pieces without falling apart. <button class="spk" onclick="readWord('The sponge is firm enough to be cut into small pieces without falling apart.')">🔊</button><br><b>解說：</b>adj. + enough to V 表「夠…足以…」，enough 必須放在形容詞之後（firm enough，不可寫 enough firm）；海綿是「被切」，故不定詞用被動 to be cut；without 後接 V-ing。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">🈺 翻譯 2：熱水和油會讓這種海綿分解得更快，並可能釋放出有害微粒。</p>
+    <textarea id="tr2" rows="2"></textarea>
+    <button class="btn" onclick="toggleSol('solTr2')">📖 參考解答：</button>
+    <div class="sol" id="solTr2">Hot water and oil can make the sponge break down faster, and it may give off harmful particles. <button class="spk" onclick="readWord('Hot water and oil can make the sponge break down faster, and it may give off harmful particles.')">🔊</button><br><b>解說：</b>make 為使役動詞，受詞後接原形動詞 break down（不可寫 to break down）；give off 為不可分離片語，表「釋放出（微粒、氣味、熱）」。</div>
+  </div>
+</section>
+
+<!-- ============ TAB 4 ============ -->
+<section id="board">
+  <h2>🎲 摘要大富翁</h2>
+  <p>擲骰子前進，停在哪一格就答哪一題。答對得分並保留該格，答錯留在原地重整旗鼓。走完 12 格即完成一圈。</p>
+  <div class="board" id="boardGrid"></div>
+  <button class="btn" onclick="roll()">🎲 擲骰子</button>
+  <button class="btn" onclick="resetBoard()">↺ 重新開始</button>
+  <p id="diceMsg" style="font-weight:700"></p>
+  <div id="boardQ"></div>
+</section>
+<!-- ============ TAB 5 ============ -->
+<section id="gias">
+  <h2>✍️ GIAS 綜合練習與混合題</h2>
+
+  <h3>📌 Language in Focus｜have trouble / problems (in) V-ing</h3>
+  <div class="card">
+    <p>表示「做某事有困難」時，常用 <b>have trouble (in) V-ing</b> 或 <b>have difficulty (in) V-ing</b>；trouble 與 difficulty 在此皆為不可數名詞，前面不加 a。若改用 <b>problem</b>，因它是可數名詞，須寫成 <b>have a problem / some problems (in) V-ing</b>。另有口語說法 <b>have a hard time V-ing</b>，其中 a hard time 同樣必須加冠詞。</p>
+    <p>• Do you have trouble removing dirty spots? <button class="spk" onclick="readWord('Do you have trouble removing dirty spots?')">🔊</button><br><span class="zh">去除髒汙時，你是否遇上了困難？</span></p>
+    <p>• Grace had some problems carrying all the bags by herself yesterday. <button class="spk" onclick="readWord('Grace had some problems carrying all the bags by herself yesterday.')">🔊</button><br><span class="zh">葛蕾絲昨天自己提所有袋子有些困難。</span></p>
+  </div>
+
+  <div class="q">
+    <p class="stem">1. 請選出正確的選項（可複選）：Fiona had ________ falling asleep last night because her neighbors were playing loud music. <button class="spk" onclick="readWord('Fiona had trouble falling asleep last night because her neighbors were playing loud music.')">🔊</button></p>
+    <p>(A) trouble　(B) problem　(C) difficulty　(D) hard time</p>
+    <textarea id="g1" rows="1" placeholder="請寫下你選的所有選項，例如 AB"></textarea>
+    <button class="btn" onclick="toggleSol('solG1')">📖 參考解答：</button>
+    <div class="sol" id="solG1"><b>✅ 答案：(A)(C)</b><br><b>🔍 解析：</b>trouble 與 difficulty 在「做某事有困難」的用法中為不可數名詞，可直接接在 had 之後。(B) problem 為可數名詞，必須寫成 a problem 或 some problems；(D) hard time 同樣必須加冠詞，寫成 a hard time。<br><b>解題程序：</b>先判斷空格後的名詞可數與否，再檢查前面有沒有冠詞或限定詞——這是本題唯一的判準。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">2. 請用本課 Language in Focus 的 problem 寫法完成以下引導式翻譯：葛蕾絲（Grace）昨天自己提所有袋子有些困難。</p>
+    <p><input class="blank" style="min-width:300px" id="g2"> all the bags by herself yesterday.</p>
+    <button class="btn" onclick="toggleSol('solG2')">📖 參考解答：</button>
+    <div class="sol" id="solG2"><b>✅ 答案：</b>Grace had some problems (in) carrying <button class="spk" onclick="readWord('Grace had some problems carrying all the bags by herself yesterday.')">🔊</button><br><b>🔍 解析：</b>problem 為可數名詞，「有些困難」用複數 some problems；「提袋子」的動作接在後面須用動名詞 carrying，中間的 in 可省略。時間副詞 yesterday 提示時態為過去簡單式，故用 had。</div>
+  </div>
+
+  <h3>🧩 混合題型挑戰</h3>
+  <div id="mixQs"></div>
+
+  <div class="q">
+    <p class="stem">3. Which TWO of the following statements are true about the melamine sponge?</p>
+    <p>(A) It can remove stubborn stains without soap or cleaner.<br>
+    (B) It can usually last a long time with regular and proper use.<br>
+    (C) It is too soft to be cut into smaller pieces for detailed cleaning.<br>
+    (D) It is less useful than cloths for reaching and cleaning tight corners.<br>
+    (E) It gives the best cleaning results when hot water and oil are added.<br>
+    (F) People should wash the cleaned surface with water after using the sponge.</p>
+    <textarea id="m3" rows="1" placeholder="請寫下兩個選項，例如 AB"></textarea>
+    <button class="btn" onclick="toggleSol('solM3')">📖 參考解答：</button>
+    <div class="sol" id="solM3"><b>✅ 答案：(A)(F)</b><br><b>🔍 解析：</b>(A) 對應 Sep. 17 的 only needs a little water—no soap or cleaner is needed 與 works especially well against stubborn stains，兩個訊息合併才成立。(F) 對應 Sep. 18 末段 After cleaning, you should clean the surface again with water。<br><b>為何其他錯：</b>(B) 課文明說 doesn't usually last very long；(C) 課文說 firm enough to be cut，與「太軟」相反；(D) 課文說它能到達 cloths 到不了的角落，選項把優劣顛倒；(E) 熱水與油會加速分解，是風險不是加分。<br><b>解題程序：</b>多選題逐一把選項「配回原句」，最常見的陷阱是把課文敘述反向改寫。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">4. Complete the following sentences with information from the article. Change the forms of the words to make the sentences correct.</p>
+    <p>Melamine sponges are powerful, but they do not <input class="blank" id="m4a"> every material. They may scratch screens, car paint, and non-stick pans. Because of this, people are <input class="blank" id="m4b"> to use them carefully on surfaces like these.</p>
+    <button class="btn" onclick="toggleSol('solM4')">📖 參考解答：</button>
+    <div class="sol" id="solM4"><b>✅ 答案：</b>suit；advised <button class="spk" onclick="readWord('Melamine sponges are powerful, but they do not suit every material. Because of this, people are advised to use them carefully on surfaces like these.')">🔊</button><br><b>🔍 解析：</b>課文原句為形容詞 suitable for，改寫句中 do not 後方需要原形動詞，故轉為動詞 suit（suit sth 表「適合某物」，後面不加 for）。課文的 it's advisable to test… 為形容詞 advisable，改寫句採被動 people are ______ to V，須轉為過去分詞 advised（advise sb to V 的被動）。<br><b>解題程序：</b>詞形轉換題先判斷空格的「詞性位置」（助動詞後＝原形動詞；be 動詞後＋to V＝過去分詞），再回課文找同源字。</div>
+  </div>
+</section>
+
+<!-- ============ TAB 6 ============ -->
+<section id="life">
+  <h2>🧽 生活應用 Sponge Lab</h2>
+  <div class="card" style="text-align:center">
+    <svg viewBox="0 0 340 130" style="width:100%;max-width:330px;height:auto" role="img" aria-label="A sponge wiping a dirty surface clean">
+      <rect x="0" y="0" width="340" height="130" rx="14" fill="#FFFBEB"/>
+      <rect x="20" y="86" width="300" height="30" rx="6" fill="#E2F1FF"/>
+      <g fill="#C2557A" opacity=".55"><circle cx="230" cy="100" r="5"/><circle cx="252" cy="96" r="4"/><circle cx="272" cy="104" r="6"/><circle cx="296" cy="98" r="4"/></g>
+      <rect x="60" y="44" width="110" height="44" rx="10" fill="#ECFDF5" stroke="#9ed9b8" stroke-width="3"/>
+      <g fill="#a9dcc1"><circle cx="82" cy="60" r="4"/><circle cx="104" cy="72" r="4"/><circle cx="126" cy="58" r="4"/><circle cx="148" cy="74" r="4"/><circle cx="116" cy="46" r="3"/></g>
+      <rect x="86" y="24" width="58" height="22" rx="8" fill="#F3E8FF" stroke="#c9aee4" stroke-width="3"/>
+      <path d="M176 70 Q196 62 214 70" stroke="#8a6fae" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M176 82 Q200 74 220 82" stroke="#8a6fae" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <h3>一、字彙小補帖（Sep. 17）</h3>
+  <div class="card" id="pocket17"></div>
+
+  <h3>二、字彙小補帖（Sep. 18）</h3>
+  <div class="card" id="pocket18"></div>
+
+  <h3>三、生活情境判斷</h3>
+  <div id="lifeQs"></div>
+
+  <h3>四、延伸寫作</h3>
+  <div class="q">
+    <p class="stem">✍️ Your friend wants to clean a phone screen with a melamine sponge. Write 3–4 sentences to give advice. You must use <b>It's advisable to…</b> and <b>Every cleaning tool has its pros and cons</b>.</p>
+    <textarea id="lwrite" rows="4" placeholder="A melamine sponge works well on walls and shoes, but ..."></textarea>
+    <button class="btn" onclick="toggleSol('solLW')">📖 參考解答：</button>
+    <div class="sol" id="solLW"><b>參考寫法：</b>A melamine sponge works especially well against stubborn stains on walls and shoes. However, its rough texture can damage shiny surfaces, so it may leave scratches on your phone screen. It's advisable to test the sponge on a small area first, or simply use a soft cloth instead. Every cleaning tool has its pros and cons, so use the sponge wisely. <button class="spk" onclick="readWord(&quot;A melamine sponge works especially well against stubborn stains on walls and shoes. However, its rough texture can damage shiny surfaces, so it may leave scratches on your phone screen. It's advisable to test the sponge on a small area first, or simply use a soft cloth instead. Every cleaning tool has its pros and cons, so use the sponge wisely.&quot;)">🔊</button><br><b>評分重點：</b>(1) 先肯定優點再轉出風險，與課文 Sep. 17 → Sep. 18 的 pros → cons 結構同構；(2) It's advisable to 後接原形動詞，其中 It 為虛主詞；(3) 建議須具體可執行（先小範圍測試／改用軟布），不可只寫 be careful。</div>
+  </div>
+</section>
+<!-- ============ TAB 7 ============ -->
+<section id="focus">
+  <h2>📐 Language in Focus</h2>
+
+  <h3>一、S + have + trouble / difficulty / problems / a hard time + V-ing …</h3>
+  <div class="card">
+    <p>此句型表示「做…有困難；不容易做…」，亦可搭配 some（有些）、great（非常）、little（幾乎沒有）等字詞來修飾程度。須注意以下幾點：</p>
+    <p><b>1.</b> V-ing 前方已有習慣性被省略的介系詞 in，因此不須再接其他的介系詞。</p>
+    <p>• Do you have trouble (in) removing dirty spots?（課文第 1 行） <button class="spk" onclick="readWord('Do you have trouble removing dirty spots?')">🔊</button></p>
+    <p>• Lucas is an experienced cook and has little difficulty (in) making new dishes. <button class="spk" onclick="readWord('Lucas is an experienced cook and has little difficulty making new dishes.')">🔊</button><br><span class="zh">盧卡斯是一位經驗老道的廚師，做新菜對他來說沒什麼難度。</span></p>
+    <p>• I had great trouble (in) getting in touch with Marcy. I couldn't find her phone number anywhere. <button class="spk" onclick="readWord(&quot;I had great trouble getting in touch with Marcy. I couldn't find her phone number anywhere.&quot;)">🔊</button><br><span class="zh">聯絡瑪西費了我好大的勁，她的電話號碼我到處都找不到。</span></p>
+    <p><b>2.</b> trouble 和 difficulty 在此句型中為不可數名詞，視為單數。</p>
+    <p><b>3.</b> hard time 在此用法下為可數單數名詞。</p>
+    <p>• The students had a hard time (in) solving this math problem, so the teacher gave them extra help. <button class="spk" onclick="readWord('The students had a hard time solving this math problem, so the teacher gave them extra help.')">🔊</button><br><span class="zh">學生們解這道數學題時遇到不少困難，所以老師額外給了他們一些指導。</span></p>
+    <p><b>4.</b> problem 為可數名詞，因此在此句型中除了可寫為 problems，亦可寫為 a problem。</p>
+    <p>• Andrew has problems (in) seeing the whiteboard, so I think he should get glasses. <button class="spk" onclick="readWord('Andrew has problems seeing the whiteboard, so I think he should get glasses.')">🔊</button><br>
+    ＝ Andrew has a problem (in) seeing the whiteboard, so I think he should get glasses. <button class="spk" onclick="readWord('Andrew has a problem seeing the whiteboard, so I think he should get glasses.')">🔊</button><br><span class="zh">安德魯看不清楚白板，所以我覺得他應該要配副眼鏡了。</span></p>
+  </div>
+
+  <h3>二、Sep. 18｜because of vs. because</h3>
+  <div class="card">
+    <p>because of 為介系詞片語，後面必須接名詞（片語），作為介系詞的受詞，because of 除了置於句中，亦可置於句首；而 because 則為從屬連接詞，引導副詞子句修飾主要子句。基本句型如下：</p>
+    <table><tr><th>句型</th></tr>
+      <tr><td>S + V … because of + N(P) …</td></tr>
+      <tr><td>S + V … because + S + V …</td></tr></table>
+    <p>• They (melamine sponges) can leave scratches on screens, car paint, and non-stick pans. Because of this, it's advisable to test the sponge on a small area before using it on the whole surface.（課文第 2~4 行） <button class="spk" onclick="readWord(&quot;They can leave scratches on screens, car paint, and non-stick pans. Because of this, it's advisable to test the sponge on a small area before using it on the whole surface.&quot;)">🔊</button></p>
+    <p>• As people use it, the sponge gradually breaks into smaller pieces. This happens because the tiny, hard parts inside come off during cleaning.（課文第 5~7 行） <button class="spk" onclick="readWord('As people use it, the sponge gradually breaks into smaller pieces. This happens because the tiny, hard parts inside come off during cleaning.')">🔊</button></p>
+    <p>我們亦可將 because of 加上名詞片語的用法，改寫為 because 引導的副詞子句，如下方例子：</p>
+    <p>• The game was canceled because of the heavy rain. <button class="spk" onclick="readWord('The game was canceled because of the heavy rain.')">🔊</button><br>
+    → The game was canceled because it rained heavily. <button class="spk" onclick="readWord('The game was canceled because it rained heavily.')">🔊</button><br><span class="zh">這場比賽因為大雨而取消了。</span></p>
+  </div>
+
+  <h3>三、句型辨識練習</h3>
+  <div id="focusQs"></div>
+
+  <div class="q">
+    <p class="stem">✍️ 改寫練習：請把下面這句改寫成 because 引導的副詞子句。<br>Because of the sponge's rough texture, it can damage shiny surfaces.</p>
+    <textarea id="fw1" rows="2"></textarea>
+    <button class="btn" onclick="toggleSol('solFW1')">📖 參考解答：</button>
+    <div class="sol" id="solFW1"><b>參考答案：</b>Because the sponge's texture is rough, it can damage shiny surfaces. <button class="spk" onclick="readWord(&quot;Because the sponge's texture is rough, it can damage shiny surfaces.&quot;)">🔊</button><br><b>解說：</b>改寫程序：把 because of 後的名詞片語拆成「主詞＋動詞」的完整子句——the sponge's rough texture 拆為 the sponge's texture is rough。常見錯誤：寫成 Because of the sponge's texture is rough（of 後不能接子句）。</div>
+  </div>
+
+  <div class="q">
+    <p class="stem">✍️ 句型練習：請用 have a hard time V-ing 造一句，描述你自己清潔某樣東西時遇到的困難。</p>
+    <textarea id="fw2" rows="2" placeholder="I had a hard time ..."></textarea>
+    <button class="btn" onclick="toggleSol('solFW2')">📖 參考解答：</button>
+    <div class="sol" id="solFW2"><b>參考寫法：</b>I had a hard time removing the stubborn stains on my white shoes, so I tried using a melamine sponge. <button class="spk" onclick="readWord('I had a hard time removing the stubborn stains on my white shoes, so I tried using a melamine sponge.')">🔊</button><br><b>評分重點：</b>(1) hard time 為可數單數，前面必須有 a；(2) 後方動詞用 V-ing，且不可再加介系詞；(3) 若改用 trouble 或 difficulty 則不加冠詞。</div>
+  </div>
+</section>
+
+<!-- ============ TAB 8 ============ -->
+<section id="analysis">
+  <h2>🧭 文體與組織分析</h2>
+
+  <h3>Sep. 17｜科技海綿為什麼有效</h3>
+  <div class="card">
+    <p><b>文體：</b>說明文 (Expository)，內含「操作說明 (Procedural)」與「描述 (Descriptive)」的筆法。</p>
+    <p>• 全篇現在式（feels、works、has、can get into、needs），陳述產品的恆常性質與運作原理，非一次性事件 → 非敘述文。</p>
+    <p>• 目的在解釋「它是什麼、為什麼有用、怎麼用」，並以 For example 提供例證，不爭辯立場 → 非議論文。</p>
+    <p>• 雖有觸感描寫（feels soft, but it works like fine sandpaper 的明喻），但只是為了解釋原理而非營造畫面 → 非描述文。</p>
+    <p>• Gently rub the sponge over the dirty spot. 為祈使句，屬操作說明語態。</p>
+    <p><b>組織方式：</b>Definition／Mechanism → Benefits → Transition（原理→優點→轉折預告），並以 Cause-Effect 串起每一項優點。</p>
+    <table>
+      <tr><th>段落</th><th>功能</th><th>關鍵語言標記</th></tr>
+      <tr><td>¶1</td><td>問題導入＋建議＋原理說明：外軟內硬 (tiny, hard parts) → 鑽入 cracks → 帶走 dirt；末句補述使用場合</td><td>Do you have trouble…? / Try using… / but it works like fine sandpaper（明喻）/ Gently rub…（祈使句）</td></tr>
+      <tr><td>¶2</td><td>支持論點：使用門檻低（只要一點水）＋對付頑垢有效＋可裁切 → 因果收束成「能伸進布與一般海綿到不了的角落」</td><td>only needs a little water / especially well against stubborn stains / For example / firm enough to… / That's why…（因果）</td></tr>
+      <tr><td>¶3</td><td>小結＋轉折橋樑：先肯定 handy helper，再用 However 預告下一段的限制</td><td>For these reasons（總結因果）/ However / not perfect—it also has its limits</td></tr>
+    </table>
+    <p><b>結構要點：</b>¶1 回答「為什麼有效」，¶2 回答「有多好用」，¶3 是全文的樞紐句——它同時結束上半篇並開啟 Sep. 18 的反面論述，形成 pros → cons 的跨日對稱結構。</p>
+    <div class="q">
+      <p class="stem">🧩 摘要重組（Sep. 17）：句子已打散，請依說明文結構依序點選——第 1 句＝主題句，第 2、3 句＝兩個支持論點，第 4 句＝結論句。</p>
+      <div class="seq" id="seqS17"></div>
+      <button class="btn" onclick="checkSeq('S17')">✓ 檢查</button>
+      <button class="btn" onclick="resetSeq('S17')">↺ 重排</button>
+      <button class="btn" onclick="toggleSol('solSeqS17')">📖 參考解答：</button>
+      <div class="sol" id="solSeqS17"><b>摘要 Summary：</b>A melamine sponge feels soft, but it works like fine sandpaper because it has many tiny, hard parts inside. These tiny, hard parts can get into small cracks on a surface and take the dirt out. It only needs a little water, it works especially well against stubborn stains, and it is firm enough to be cut into small pieces to reach corners. For these reasons, many families see the melamine sponge as a handy helper around the house. <button class="spk" onclick="readSlow('A melamine sponge feels soft, but it works like fine sandpaper because it has many tiny, hard parts inside. These tiny, hard parts can get into small cracks on a surface and take the dirt out. It only needs a little water, it works especially well against stubborn stains, and it is firm enough to be cut into small pieces to reach corners. For these reasons, many families see the melamine sponge as a handy helper around the house.')">🔊</button><br>（第 1 句＝主題句；第 2、3 句＝兩個支持論點；第 4 句＝結論句）<br><b>判斷程序：</b>① 含「定義＋反差 feels soft, but…」且第一次出現 A melamine sponge 全稱者為主題句。② 以 These tiny, hard parts 開頭者必然緊接主題句，因為代名詞回指需要先行詞。③ 列舉優點（only needs a little water／works especially well／firm enough to be cut）的長句為第二個支持論點。④ 帶總結訊號 For these reasons 的評價句為結論句。<br><b>常見錯誤：</b>把優點句排在 These tiny, hard parts 之前，會讓代名詞失去指涉對象。</div>
+    </div>
+  </div>
+
+  <h3>Sep. 18｜科技海綿的限制與風險</h3>
+  <div class="card">
+    <p><b>文體：</b>說明文 (Expository) 為主，末段帶入建議與評價，具輕度議論 (Argumentative) 色彩。</p>
+    <p>• 全篇現在式陳述通則（aren't suitable、can damage、doesn't usually last、may give off），屬說明性質。</p>
+    <p>• 三段各說明一項限制，並附原因（This happens because… / Because of this…）→ 典型的列點說明成因結構。</p>
+    <p>• 末段的 use the sponge wisely 與 it's advisable to… 是對讀者的建議與價值判斷，使文體帶議論收尾；但全篇沒有反方立場的攻防，故不算完整議論文。</p>
+    <p>• 無時間序列與情節 → 非敘述文；無感官畫面經營 → 非描述文。</p>
+    <p><b>組織方式：</b>Listing of Limits（列點說明限制）＋ Cause-Effect（每項限制附成因）＋ Recommendation（建議收尾）。</p>
+    <table>
+      <tr><th>段落</th><th>功能</th><th>關鍵語言標記</th></tr>
+      <tr><td>¶1</td><td>限制一：材質不相容——粗糙質地會刮傷亮面（螢幕、車漆、不沾鍋）→ 提出對策：先小面積測試</td><td>Even though…（讓步）/ aren't suitable for every material / Because of this / it's advisable to…</td></tr>
+      <tr><td>¶2</td><td>限制二：不耐用——會逐漸碎裂，並說明成因（內部硬粒脫落）</td><td>Another limit is that… / gradually / This happens because…</td></tr>
+      <tr><td>¶3</td><td>限制三：安全疑慮——熱水與油加速分解 → 釋出有害微粒 → 禁用場合與善後步驟</td><td>There is also a safety concern / may give off harmful particles / For this reason / After cleaning, you should…</td></tr>
+      <tr><td>¶4</td><td>總結：以 pros and cons 的通則收束，並給出行動建議</td><td>Every cleaning tool has its pros and cons / is no exception / So, use the sponge wisely</td></tr>
+    </table>
+    <p><b>結構要點：</b>三項限制以 Even though → Another limit → There is also 依序加碼，風險等級由「外觀受損」升至「健康疑慮」，屬遞進式排序；末段不否定產品，而是把兩天課文合併成 pros and cons 的平衡結論，呼應 Sep. 17 結尾的 However。</p>
+    <div class="q">
+      <p class="stem">🧩 摘要重組（Sep. 18）：句子已打散，請依說明文結構依序點選——第 1 句＝主題句，第 2、3 句＝兩個支持論點，第 4 句＝結論句。</p>
+      <div class="seq" id="seqS18"></div>
+      <button class="btn" onclick="checkSeq('S18')">✓ 檢查</button>
+      <button class="btn" onclick="resetSeq('S18')">↺ 重排</button>
+      <button class="btn" onclick="toggleSol('solSeqS18')">📖 參考解答：</button>
+      <div class="sol" id="solSeqS18"><b>摘要 Summary：</b>Even though melamine sponges are popular, they aren't suitable for every material. Their rough texture can damage shiny surfaces, so it's advisable to test the sponge on a small area first. Another limit is that the sponge gradually breaks into smaller pieces, and hot water and oil can make it break down faster and give off harmful particles. Every cleaning tool has its pros and cons, so you should use the sponge wisely to get the best results. <button class="spk" onclick="readSlow(&quot;Even though melamine sponges are popular, they aren't suitable for every material. Their rough texture can damage shiny surfaces, so it's advisable to test the sponge on a small area first. Another limit is that the sponge gradually breaks into smaller pieces, and hot water and oil can make it break down faster and give off harmful particles. Every cleaning tool has its pros and cons, so you should use the sponge wisely to get the best results.&quot;)">🔊</button><br>（第 1 句＝主題句；第 2、3 句＝兩個支持論點；第 4 句＝結論句）<br><b>判斷程序：</b>① 帶讓步訊號 Even though 並提出全段主張（並非每種材質都適用）者為主題句。② 第一個支持論點說明「刮傷亮面」並附對策 it's advisable to…。③ 第二個支持論點以 Another limit is that 明白標示「再加一項」，必在前一項之後。④ 以 Every cleaning tool has its pros and cons 收束並給建議者為結論句。<br><b>常見錯誤：</b>把 Another limit 排在第一個支持論點之前——another 的語意本身就要求前面已有一項。</div>
+    </div>
+  </div>
+
+  <h3>兩段對照一覽</h3>
+  <table>
+    <tr><th>比較項目</th><th>Sep. 17</th><th>Sep. 18</th></tr>
+    <tr><td>文體</td><td>說明文（含操作說明與描述筆法）</td><td>說明文（末段帶建議，具輕度議論）</td></tr>
+    <tr><td>論述方向</td><td>Pros：原理與優點</td><td>Cons：限制與風險</td></tr>
+    <tr><td>組織方式</td><td>原理→優點→轉折預告</td><td>列點限制＋成因→建議收尾</td></tr>
+    <tr><td>關鍵連接語</td><td>but、For example、That's why、For these reasons、However</td><td>Even though、Because of this、Another limit、This happens because、For this reason、So</td></tr>
+    <tr><td>收尾方式</td><td>肯定後拋出 However，作為跨日橋樑</td><td>pros and cons 平衡結論＋行動建議</td></tr>
+  </table>
+
+  <h3>語言結構與生活活用</h3>
+  <div class="card">
+    <p>• <b>明喻的解釋功能：</b>feels soft, but it works like fine sandpaper 用「軟／砂紙」的矛盾並置，一句話講完外觀與作用的落差，是科普寫作最常見的說明手法。</p>
+    <p>• <b>讓步與轉折的分工：</b>However（Sep. 17 末）轉的是「評價」，Even though（Sep. 18 首）讓的是「事實」；兩者不可互換位置。</p>
+    <p>• <b>firm enough to be cut：</b>adj. + enough to V 表「足以…」，enough 必須放在形容詞之後，這是常見語序錯誤點。</p>
+    <p>• <b>代名詞回指 (anaphor)：</b>¶2 的 These tiny, hard parts 回指 ¶1 的內部硬粒；Sep. 18 ¶2 的 This happens 回指前一句整件事——回指對象可以是名詞，也可以是整個子句。</p>
+    <p>• <b>break 的一詞多義 (polysemy)：</b>breaks into smaller pieces（碎裂）／break down（分解、失效），加上不同介系詞就換一個意思。</p>
+    <p>• <b>give off</b> 為不可分離動詞片語，表「釋放出（氣味、熱、微粒）」，常見搭配 give off harmful particles / heat / a smell。</p>
+    <p>• <b>生活活用：</b>pros and cons、no exception、use sth wisely 三組可直接遷移到任何「產品評估」的口說與寫作題型。</p>
+  </div>
+</section>
+
+</main>
+<div id="toast"></div>
+<script>
+/* ---------- state ---------- */
+const S=JSON.parse(localStorage.getItem('u8state')||'{}');
+S.pts=S.pts||0;S.streak=S.streak||0;S.ok=S.ok||0;S.tot=S.tot||0;S.cat=S.cat||'noun';
+S.text=S.text||{};S.done=S.done||{};
+function save(){localStorage.setItem('u8state',JSON.stringify(S));}
+function wipe(){localStorage.removeItem('u8state');location.reload();}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';
+ clearTimeout(t._t);t._t=setTimeout(()=>t.style.display='none',3500);}
+function toggleMenu(){const m=document.getElementById('menu');m.classList.toggle('open');
+ document.getElementById('menuBtn').textContent=m.classList.contains('open')?'✕ 關閉':'☰ 選單';}
+document.addEventListener('click',e=>{const m=document.getElementById('menu');
+ if(m.classList.contains('open')&&!m.contains(e.target)&&e.target.id!=='menuBtn')toggleMenu();});
+function go(id){document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+ document.getElementById(id).classList.add('active');window.scrollTo(0,0);toggleMenu();}
+function toggleScore(){document.getElementById('score').classList.toggle('show');}
+function toggleSol(id){document.getElementById(id).classList.toggle('show');}
+function award(n){S.pts+=n;S.ok++;S.tot++;S.streak++;S.pts+=Math.min(S.streak,5)*20;paint();save();boom();}
+function miss(){S.tot++;S.streak=0;paint();save();}
+function paint(){const p=document.getElementById('pts');p.textContent=S.pts;
+ p.classList.remove('pop');void p.offsetWidth;p.classList.add('pop');
+ document.getElementById('streak').textContent=S.streak;
+ document.getElementById('nok').textContent=S.ok;document.getElementById('ntot').textContent=S.tot;}
+
+/* ---------- speech ---------- */
+function speak(t,r){if(!window.speechSynthesis)return;speechSynthesis.cancel();
+ const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=r;speechSynthesis.speak(u);}
+function readWord(t){speak(t,1.0);}
+function readSlow(t){speak(t,0.9);}
+function stopRead(){if(window.speechSynthesis)speechSynthesis.cancel();}
+
+/* ---------- fireworks ---------- */
+const cv=document.getElementById('fw'),cx=cv.getContext('2d');let ps=[];
+function sz(){cv.width=innerWidth;cv.height=innerHeight;}sz();addEventListener('resize',sz);
+const COLS=['#E2F1FF','#F3E8FF','#FCE7F3','#FFFBEB','#ECFDF5','#FFD6E8','#CDE9FF'];
+function boom(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ const x=innerWidth/2,y=innerHeight/3;
+ for(let i=0;i<60;i++){const a=Math.random()*Math.PI*2,s=2+Math.random()*6;
+  ps.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,a:1,c:COLS[i%COLS.length]});}}
+function loop(){cx.clearRect(0,0,cv.width,cv.height);
+ ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=0.08;p.a-=0.012;
+  cx.globalAlpha=Math.max(p.a,0);cx.fillStyle=p.c;cx.beginPath();cx.arc(p.x,p.y,3.5,0,7);cx.fill();});
+ ps=ps.filter(p=>p.a>0);cx.globalAlpha=1;requestAnimationFrame(loop);}loop();
+
+/* ---------- helpers ---------- */
+function esc(s){return s.replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+/* ---------- generic MC ---------- */
+function mc(host,list,tag){
+ host.innerHTML=list.map((q,i)=>`<div class="q" id="${tag}${i}">
+  <p class="stem">${i+1}. ${q.s} <button class="spk" onclick="readWord('${esc(q.s.replace(/<[^>]+>/g,''))}')">🔊</button></p>
+  ${q.o.map((o,j)=>`<button class="opt" onclick="pick('${tag}',${i},${j})">(${'ABCD'[j]}) ${o}</button>`).join('')}
+  <button class="btn" onclick="toggleSol('${tag}s${i}')">📖 參考解答：</button>
+  <div class="sol" id="${tag}s${i}"><b>正解：(${'ABCD'[q.a]})</b> ${q.o[q.a]}<br>${q.e}</div></div>`).join('');
+ window['DATA_'+tag]=list;}
+function pick(tag,i,j){const q=window['DATA_'+tag][i];const box=document.getElementById(tag+i);
+ if(box.dataset.done)return;box.dataset.done=1;
+ const btns=box.querySelectorAll('.opt');btns.forEach((b,k)=>{if(k===q.a)b.classList.add('right');});
+ if(j===q.a){award(100);toast('✅ 答對！＋分');}else{btns[j].classList.add('wrong');miss();toast('❌ 再想想，看解答回推線索');}
+ document.getElementById(tag+'s'+i).classList.add('show');}
+
+/* ---------- TAB1 vocabulary ---------- */
+const VOCAB={
+ noun:{n:'名詞',items:[
+  {w:'surface',z:'表面',s:'The ____ of the new phone feels smooth and cold.'},
+  {w:'dirt',z:'灰塵；塵垢',s:'Amy’s son came home from school covered in ____.'},
+  {w:'wipe',z:'擦拭；擦淨',s:'Mason gave his glasses a quick ____ with his shirt.'},
+  {w:'material',z:'材料；原料',s:'These watches cost more because they are made of more expensive ____s like gold and silver.'},
+  {w:'texture',z:'質地',s:'Their rough ____ can damage shiny surfaces.'},
+  {w:'scratch',z:'刮痕；劃痕',s:'They can leave ____es on screens, car paint, and non-stick pans.'},
+  {w:'particle',z:'微粒；顆粒；粒子',s:'When this happens, the sponge may give off harmful ____s.'},
+  {w:'sponge',z:'海綿',s:'Gently rub the ____ over the dirty spot.'},
+  {w:'crack',z:'裂縫；裂紋',s:'These tiny, hard parts can get into small ____s on a surface.'},
+  {w:'stain',z:'汙跡；汙點',s:'It works especially well against stubborn ____s.'},
+  {w:'fingerprint',z:'指紋',s:'Black marks on shoes and ____s on walls may disappear after just a few wipes.'},
+  {w:'exception',z:'例外；除外',s:'Every cleaning tool has its pros and cons, and the melamine sponge is no ____.'}]},
+ adj:{n:'形容詞副詞',items:[
+  {w:'stubborn',z:'難以去除的；頑強的',s:'The kitchen now has a ____ smell after Ben cooked fish for dinner last night.'},
+  {w:'firm',z:'結實的；堅實的',s:'Rosie likes ____ pillows because they support her neck while she sleeps.'},
+  {w:'handy',z:'方便的；有用的',s:'This ____ bottle opener helps Fred open drinks quickly.'},
+  {w:'suitable',z:'適合的',s:'The weather was sunny and cool, which made the day ____ for eating lunch in the park.'},
+  {w:'shiny',z:'（表面）發亮的，有光澤的',s:'That car’s paint is so black and ____. It’s like looking into a black mirror!'},
+  {w:'advisable',z:'明智的',s:'Early booking is ____ if you want a good seat on the train.'},
+  {w:'harmful',z:'有害的',s:'You shouldn’t have fast food too often. It is ____ to your body.'},
+  {w:'gradually',z:'逐漸地',s:'You should start with a few minutes of exercise, and then ____ add more time every day.'},
+  {w:'dirty',z:'骯髒的',s:'Gently rub the sponge over the ____ spot.'},
+  {w:'rough',z:'粗糙的',s:'Their ____ texture can damage shiny surfaces.'}]},
+ verb:{n:'動詞',items:[
+  {w:'rub',z:'擦拭；摩擦',s:'Gently ____ the sponge over the dirty spot.'},
+  {w:'damage',z:'損壞',s:'Their rough texture can ____ shiny surfaces.'},
+  {w:'last',z:'持續；維持',s:'Another limit is that the sponge doesn’t usually ____ very long.'},
+  {w:'test',z:'測試',s:'It’s advisable to ____ the sponge on a small area first.'},
+  {w:'disappear',z:'消失',s:'Black marks on shoes may ____ after just a few wipes.'},
+  {w:'support',z:'支撐',s:'Rosie likes firm pillows because they ____ her neck while she sleeps.'},
+  {w:'reach',z:'到達；構得著',s:'That’s why it can ____ corners that cloths and regular sponges cannot.'},
+  {w:'remove',z:'去除',s:'Do you have trouble ____ing dirty spots?'}]},
+ coll:{n:'慣用搭配詞',items:[
+  {w:'have trouble',z:'[動詞片語 V + N] 做某事有困難，後接 V-ing',s:'Do you ____ removing dirty spots?'},
+  {w:'work like',z:'[動詞＋介系詞 V + prep.] 作用像…一樣，like 後接名詞',s:'The sponge feels soft, but it ____s fine sandpaper.'},
+  {w:'For example',z:'[轉折副詞片語 adv. phr.] 例如，置句首加逗號，後接完整句子',s:'____, black marks on shoes may disappear after just a few wipes.'},
+  {w:'That’s why',z:'[因果句型 S + V + 名詞子句] 因此；這就是為什麼，後接完整子句',s:'____ it can reach corners that cloths and regular sponges cannot.'},
+  {w:'For these reasons',z:'[介系詞片語 prep. phr.] 基於這些原因，置句首加逗號，作副詞用',s:'____, many families see the melamine sponge as a handy helper.'},
+  {w:'Even though',z:'[從屬連接詞 conj.] 雖然，引導副詞子句，後接 S + V',s:'____ melamine sponges are popular, they aren’t suitable for every material.'},
+  {w:'suitable for',z:'[形容詞＋介系詞 adj. + prep.] 對…適合的，for 後接名詞',s:'They aren’t ____ every material.'},
+  {w:'Because of this',z:'[介系詞片語 prep. phr.] 因此，of 後只能接名詞或代名詞，不可接子句',s:'____, it’s advisable to test the sponge on a small area first.'},
+  {w:'break down',z:'[不及物動詞片語 vi. phr.] 分解；故障，後不接受詞',s:'Hot water and oil can make the sponge ____ faster.'},
+  {w:'give off',z:'[及物動詞片語 vt. phr.] 釋放出（氣味、熱、微粒），不可分離',s:'When this happens, the sponge may ____ harmful particles.'},
+  {w:'keep in mind',z:'[動詞片語 v. phr.] 謹記在心，受詞可置 keep 與 in 之間',s:'There is also a safety concern to ____.'},
+  {w:'wash away',z:'[及物動詞片語 vt. phr.] 沖掉；洗去，受詞為代名詞時須置中間',s:'Clean the surface again with water to ____ any small pieces.'},
+  {w:'come off',z:'[不及物動詞片語 vi. phr.] 脫落，後不接受詞',s:'The tiny, hard parts inside ____ during cleaning.'},
+  {w:'pros and cons',z:'[複數名詞片語 n. phr. (pl.)] 優缺點，恆用複數，常搭配 have its ~',s:'Every cleaning tool has its ____.'},
+  {w:'no exception',z:'[名詞片語 n. phr.] 無例外，固定用 beV + no exception',s:'The melamine sponge is ____.'},
+  {w:'harmful to',z:'[形容詞＋介系詞 adj. + prep.] 對…有害的，to 後接名詞',s:'Fast food is ____ your body because it usually has too much salt and sugar.'}]},
+ pat:{n:'重要句型',items:[
+  {w:'have trouble removing',z:'[句型 S + have + N(不可數) + V-ing] have trouble + V-ing 做某事有困難；trouble 不可數，不加冠詞，V-ing 前省略介系詞 in',s:'Do you ____ dirty spots?'},
+  {w:'some problems carrying',z:'[句型 S + have + N(可數) + V-ing] have some problems + V-ing；problem 為可數名詞，須寫 a problem 或 problems',s:'Grace had ____ all the bags by herself yesterday.'},
+  {w:'firm enough to be cut',z:'[句型 beV + adj. + enough + to V] 夠…足以…；enough 為副詞，必須後置於形容詞，主詞被動時用 to be + p.p.',s:'The sponge is ____ into small pieces without falling apart.'},
+  {w:'It’s advisable to test',z:'[句型 It + beV + adj. + to V] 虛主詞 It 代替真主詞不定詞片語；to 後接原形動詞',s:'____ the sponge on a small area before using it on the whole surface.'},
+  {w:'This happens because',z:'[句型 S + V + because + S + V] 結果在前、原因在後；because 為從屬連接詞，後接完整子句',s:'____ the tiny, hard parts inside come off during cleaning.'},
+  {w:'make the sponge break down',z:'[句型 make + O + 原形 V] 使役動詞 make 後接受詞與原形動詞，不可加 to',s:'Hot water and oil can ____ faster.'},
+  {w:'too soft to be cut',z:'[句型 beV + too + adj. + to V] 太…以致於不能…；形式肯定、語意否定，主詞被動時用 to be + p.p.',s:'Some sponges are ____ into smaller pieces.'}]}
+};
+let CUR=[],SELW=null;
+function buildCats(){document.getElementById('catbar').innerHTML=Object.keys(VOCAB).map(k=>
+ `<button class="btn ${k===S.cat?'tabsel':''}" onclick="setCat('${k}')">${VOCAB[k].n}</button>`).join('');}
+function setCat(k){S.cat=k;save();buildCats();buildPractice();}
+function buildPractice(){
+ const items=VOCAB[S.cat].items;CUR=shuffle(items);SELW=null;
+ document.getElementById('wbbody').innerHTML=shuffle(items).map(it=>
+  `<button class="chip" data-w="${it.w}" onclick="selW(this)">${it.w} <span class="spk" onclick="event.stopPropagation();readWord('${esc(it.w)}')">🔊</span></button>`).join('');
+ document.getElementById('qlist').innerHTML=CUR.map((it,i)=>
+  `<div class="q"><p><span class="num">${i+1}</span> <span class="zh">💬 提示用中譯：${it.z}</span></p>
+   <p>${it.s.replace('____',`<span class="slot" id="sl${i}" onclick="putW(${i})"></span>`)}
+   <button class="spk" onclick="readWord('${esc(it.s.replace('____',it.w))}')">🔊</button></p>
+   <div class="sol" id="vs${i}"></div></div>`).join('');}
+function selW(b){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('sel'));
+ b.classList.add('sel');SELW=b;}
+function putW(i){const sl=document.getElementById('sl'+i);
+ if(sl.textContent.trim()){const w=sl.dataset.filled;
+  document.querySelectorAll('.chip').forEach(c=>{if(c.dataset.w===w)c.classList.remove('used');});
+  sl.textContent='';sl.dataset.filled='';sl.className='slot';return;}
+ if(!SELW){toast('請先在 Word Bank 點選一個詞彙');return;}
+ sl.textContent=SELW.dataset.w;sl.dataset.filled=SELW.dataset.w;
+ SELW.classList.add('used');SELW.classList.remove('sel');SELW=null;}
+function checkPractice(){let first=null;
+ CUR.forEach((it,i)=>{const sl=document.getElementById('sl'+i),sol=document.getElementById('vs'+i);
+  const ok=(sl.dataset.filled||'').toLowerCase()===it.w.toLowerCase();
+  sl.classList.remove('right','wrong');sl.classList.add(ok?'right':'wrong');
+  sol.innerHTML=`<b>正解：</b>${it.w}（${it.z}）<button class="spk" onclick="readWord('${esc(it.w)}')">🔊</button><br>
+   <b>完整句：</b>${it.s.replace('____','<b>'+it.w+'</b>')} <button class="spk" onclick="readWord('${esc(it.s.replace('____',it.w))}')">🔊</button>`;
+  sol.classList.add('show');
+  if(ok)award(100);else{miss();if(!first)first=sl;}});
+ if(first)first.scrollIntoView({behavior:'smooth',block:'center'});else toast('🎉 全對！');}
+
+/* ---------- TAB2 cloze ---------- */
+const DD={14:'E',16:'D',23:'B',24:'C',25:'A'};
+const DDOPT=[['A','exception'],['B','particles'],['C','pros and cons'],['D','scratches'],['E','texture']];
+const TYPED={1:'spots',2:'fine',3:'surface',4:'dirt',5:'stubborn',6:'marks',7:'wipes',8:'firm',
+ 9:'falling apart',10:'see',11:'handy',12:'suitable',13:'material',15:'shiny',17:'advisable',
+ 18:'gradually',19:'come off',20:'keep in mind',21:'break down',22:'harmful'};
+const HINT={1:'\u6c59\u9ede\uff1b\u6c59\u6f2c',2:'\u7d30\u7dfb\u7684\uff1b\u9846\u7c92\u5fae\u5c0f\u7684',3:'\u8868\u9762',4:'\u7070\u5875\uff1b\u5875\u57a2',
+ 5:'\u9811\u5f37\u7684\uff1b\u96e3\u4ee5\u53bb\u9664\u7684',6:'\u6c59\u6f2c\uff1b\u75d5\u8de1\uff08\u8907\u6578\uff09',7:'\u64e6\u62ed\uff08\u8907\u6578\uff09',8:'\u7d50\u5be6\u7684',
+ 9:'\u6563\u958b\uff1b\u5d29\u89e3',10:'\u8996\u2026\u70ba\u2026\uff1b\u8a8d\u70ba\u2026',11:'\u65b9\u4fbf\u7684\uff1b\u6709\u7528\u7684',12:'\u9069\u5408\u7684',
+ 13:'\u6750\u6599\uff1b\u6750\u8cea',15:'\u6709\u5149\u6fa4\u7684',17:'\u660e\u667a\u7684',18:'\u9010\u6f38\u5730',19:'\u812b\u843d',
+ 20:'\u8b39\u8a18\u5728\u5fc3\uff1b\u7559\u5fc3',21:'\u5206\u89e3',22:'\u6709\u5bb3\u7684'};
+const CLOZE=`<p>Do you have trouble removing dirty [1]? Try using a melamine sponge! The sponge feels soft, but it works like [2] sandpaper. The melamine sponge has many tiny, hard parts inside. Gently rub the sponge over the dirty spot. These tiny, hard parts can get into small cracks on a [3] and take the [4] out. People often use the sponge on shoes, tables, walls, and sinks.</p>
+<p>The melamine sponge only needs a little water\u2014no soap or cleaner is needed. It works especially well against [5] stains\uff08\u5b83\u5c0d\u9811\u5f37\u7684\u6c59\u6f2c\u7279\u5225\u6709\u6548\uff09. For example, black [6] on shoes and fingerprints on walls\uff08\u978b\u5b50\u4e0a\u7684\u9ed1\u8272\u6c59\u6f2c\u548c\u7246\u4e0a\u7684\u6307\u7d0b\uff09may disappear after just a few [7]\uff08\u53ef\u80fd\u53ea\u8981\u64e6\u62ed\u5e7e\u4e0b\u5c31\u6703\u6d88\u5931\uff09. The sponge is [8] enough to be cut into small pieces without [9]\uff08\u9019\u7a2e\u6d77\u7dbf\u5920\u7d50\u5be6\uff0c\u53ef\u4ee5\u5207\u6210\u5c0f\u584a\u800c\u4e0d\u6703\u6563\u958b\uff09. That\u2019s why it can reach corners that cloths and regular sponges cannot.</p>
+<p>For these reasons, many families [10] the melamine sponge as a [11] helper around the house\uff08\u5bb6\u4e2d\u7684\u65b9\u4fbf\u597d\u5e6b\u624b\uff09. However, the sponge is not perfect\u2014it also has its limits.</p>
+<p>Even though melamine sponges are popular, they aren\u2019t [12] for every [13]\uff08\u4e26\u975e\u6bcf\u4e00\u7a2e\u6750\u6599\u90fd\u9069\u5408\u4f7f\u7528\u5b83\uff09. Their rough [14] can damage [15] surfaces. They can leave [16] on screens, car paint, and non-stick pans. Because of this, it\u2019s [17] to test the sponge on a small area\uff08\u6bd4\u8f03\u660e\u667a\u7684\u505a\u6cd5\u662f\u5148\u5728\u5c0f\u7bc4\u570d\u6e2c\u8a66\u79d1\u6280\u6d77\u7dbf\uff09before using it on the whole surface.</p>
+<p>Another limit is that the sponge doesn\u2019t usually last very long. As people use it, the sponge [18] breaks into smaller pieces\uff08\u6d77\u7dbf\u6703\u9010\u6f38\u5206\u89e3\u6210\u66f4\u5c0f\u7684\u788e\u7247\uff09. This happens because the tiny, hard parts inside [19] during cleaning\uff08\u9019\u662f\u56e0\u70ba\u6d77\u7dbf\u5167\u90e8\u7d30\u5c0f\u800c\u5805\u786c\u7684\u90e8\u5206\u6703\u5728\u6e05\u6f54\u6642\u812b\u843d\uff09.</p>
+<p>There is also a safety concern to [20]\uff08\u9084\u6709\u4e00\u9805\u5b89\u5168\u554f\u984c\u9700\u8981\u7559\u5fc3\uff09. Hot water and oil can make the sponge [21] faster\uff08\u71b1\u6c34\u548c\u6cb9\u6703\u4f7f\u79d1\u6280\u6d77\u7dbf\u5206\u89e3\u5f97\u66f4\u5feb\uff09. When this happens, the sponge may give off [22] [23]. For this reason, the sponge should not be used on things like cups and bowls. After cleaning, you should clean the surface again with water to wash away any small pieces.</p>
+<p>Every cleaning tool has its [24], and the melamine sponge is no [25]. So, use the sponge wisely to get the best results.</p>`;
+function buildCloze(){
+ let h=CLOZE;
+ for(let n=25;n>=1;n--){
+  let rep;
+  if(DD[n]){rep=`<span class="num">${n}</span><select class="dd" id="c${n}"><option value=""></option>`+
+    DDOPT.map(o=>`<option value="${o[0]}">(${o[0]}) ${o[1]}</option>`).join('')+`</select>`;}
+  else{rep=`<span class="num">${n}</span><input class="blank" id="c${n}"><span class="zh">\uff08${HINT[n]}\uff09</span>`;}
+  h=h.split('['+n+']').join(rep);}
+ document.getElementById('clozeText').innerHTML=h;
+ document.querySelectorAll('#clozeText input,#clozeText select').forEach(el=>{
+  if(S.text[el.id])el.value=S.text[el.id];
+  el.addEventListener('change',()=>{S.text[el.id]=el.value;save();});});}
+function norm(s){return (s||'').toLowerCase().replace(/[\u2019]/g,"'").replace(/\s+/g,' ').trim();}
+function checkCloze(){let first=null,got=0;
+ for(let n=1;n<=25;n++){const el=document.getElementById('c'+n);
+  const ans=DD[n]?DD[n]:TYPED[n];const ok=DD[n]?el.value===ans:norm(el.value)===norm(ans);
+  el.classList.remove('right','wrong');el.classList.add(ok?'right':'wrong');
+  if(ok){got+=4;award(50);}else{miss();if(!first)first=el;}}
+ toast(got===100?'\ud83c\udf89 25 \u683c\u5168\u5c0d\uff0c100 \u5206\uff01':'\ud83d\udcdd \u672c\u6b21\u5f97\u5206\uff1a'+got+' / 100');
+ if(first)first.scrollIntoView({behavior:'smooth',block:'center'});}
+
+/* ---------- TAB3 ---------- */
+const GENRE=[
+ {s:'Sep. 17（第一天課文）最適合歸入哪一種文體？',o:['議論文','說明文','敘述文','描述文'],a:1,
+  e:'全篇現在式（feels、works、has、needs）陳述產品的恆常性質與運作原理，並以 For example 舉例，目的在解釋「它是什麼、為什麼有用」。<br><b>為何其他錯：</b>議論文須有被辯護的主張；敘述文須有事件時序；描述文重感官畫面經營，本文的 feels soft 只是為解釋原理而設。'},
+ {s:'Sep. 18（第二天課文）最適合歸入哪一種文體？',o:['敘述文','說明文（末段帶建議）','描述文','抒情文'],a:1,
+  e:'三段各說明一項限制並附成因（Because of this／This happens because／For this reason），屬列點說明成因；末段 use the sponge wisely 為建議，使它帶輕度議論色彩，但沒有反方攻防，主軸仍是說明。'},
+ {s:'Sep. 17 最後一句「However, the sponge is not perfect—it also has its limits.」在結構上的功能是？',
+  o:['舉例說明','提供操作步驟','承上啟下，預告下一天的限制','重述第一段的原理'],a:2,
+  e:'這一句先肯定（handy helper）再轉折，是全文的樞紐句：它結束 Sep. 17 的優點論述，同時開啟 Sep. 18 的限制論述，形成 pros → cons 的跨日對稱結構。<br><b>為何其他錯：</b>它不含任何例子、步驟或原理，只有評價與預告。'}];
+const SEQS={
+ A:{items:['問題導入＋建議：Do you have trouble removing dirty spots? Try using a melamine sponge!',
+   '原理說明：外軟內硬，細小硬粒鑽入裂縫把髒汙帶出來',
+   '優點與例證：只要一點水、對付頑垢有效、可裁切到達角落',
+   '小結＋轉折：handy helper，但 However, the sponge is not perfect'],ord:[0,1,2,3]},
+ B:{items:['限制一：材質不相容，粗糙質地會刮傷亮面',
+   '限制二：不耐用，會逐漸碎裂',
+   '限制三：安全疑慮，熱水與油加速分解並釋出有害微粒',
+   '總結：Every cleaning tool has its pros and cons，請 use the sponge wisely'],ord:[0,1,2,3]},
+ '1':{items:['Its tiny, hard parts get into small cracks and take the dirt out.',
+   'For these reasons, many families see it as a handy helper around the house.',
+   'A melamine sponge feels soft, but it works like fine sandpaper.'],ord:[2,0,1]},
+ '2':{items:['Every cleaning tool has its pros and cons, so use the sponge wisely.',
+   "Melamine sponges aren't suitable for every material.",
+   "They can damage shiny surfaces, they don't last very long, and they may give off harmful particles."],ord:[1,2,0]}};
+SEQS['S17']={items:[
+  'It only needs a little water, it works especially well against stubborn stains, and it is firm enough to be cut into small pieces to reach corners.',
+  'For these reasons, many families see the melamine sponge as a handy helper around the house.',
+  'A melamine sponge feels soft, but it works like fine sandpaper because it has many tiny, hard parts inside.',
+  'These tiny, hard parts can get into small cracks on a surface and take the dirt out.'],ord:[2,3,0,1]};
+SEQS['S18']={items:[
+  'Another limit is that the sponge gradually breaks into smaller pieces, and hot water and oil can make it break down faster and give off harmful particles.',
+  "Even though melamine sponges are popular, they aren't suitable for every material.",
+  'Every cleaning tool has its pros and cons, so you should use the sponge wisely to get the best results.',
+  "Their rough texture can damage shiny surfaces, so it's advisable to test the sponge on a small area first."],ord:[1,3,0,2]};
+const PICK={};
+function buildSeq(k){const box=document.getElementById('seq'+k);PICK[k]=[];
+ const idx=shuffle(SEQS[k].items.map((_,i)=>i));
+ box.innerHTML=idx.map(i=>`<div class="seqitem" data-i="${i}" onclick="pickSeq('${k}',this)">${SEQS[k].items[i]}</div>`).join('');}
+function pickSeq(k,el){if(el.classList.contains('picked'))return;
+ el.classList.add('picked');PICK[k].push(+el.dataset.i);
+ el.innerHTML='<b>'+(PICK[k].length)+'.</b> '+el.innerHTML;}
+function resetSeq(k){buildSeq(k);}
+function checkSeq(k){const ord=SEQS[k].ord;
+ if(PICK[k].length<ord.length){toast('請先點選全部句子');return;}
+ const ok=PICK[k].every((v,i)=>v===ord[i]);
+ if(ok){award(150);toast('✅ 順序正確！');}else{miss();toast('❌ 順序還不對，看解答回推訊號詞');}
+ document.getElementById('solSeq'+k).classList.add('show');}
+const FOUR=[
+ {s:'What is the main purpose of the whole article?',o:['To sell a new cleaning product to readers.','To tell a story about a family cleaning a house.','To explain how a melamine sponge works and what its limits are.','To compare five different cleaning tools.'],a:2,
+  e:'<b>層次一 主要資訊。</b>Sep. 17 講原理與優點，Sep. 18 講限制與風險，兩天合起來就是一份「怎麼運作＋要注意什麼」的完整說明。<br><b>為何其他錯：</b>(A) 文章明白寫出缺點，不是廣告；(B) 全文沒有情節與時序；(D) 只提到 cloths 與 regular sponges 作對照，不是逐一比較五種工具。'},
+ {s:'Why does the writer say the sponge "feels soft, but it works like fine sandpaper"?',o:['To explain that what you feel and what it does are not the same.','To show that the sponge is made of paper.','To tell readers the sponge is dangerous to touch.','To say that sandpaper is cheaper than sponges.'],a:0,
+  e:'<b>層次四 語言結構（明喻與對比）。</b>「軟」與「砂紙」並置，一句話就講完外觀觸感與實際作用的落差，這是科普寫作最常用的說明手法，也替下一句的 tiny, hard parts 鋪路。<br><b>為何其他錯：</b>(B) like 表比喻不是材質；(C)(D) 文中皆無根據。'},
+ {s:'Which sentence could be taken out of the first paragraph WITHOUT changing the main idea?',o:['The melamine sponge has many tiny, hard parts inside.','These tiny, hard parts can get into small cracks on a surface and take the dirt out.','The sponge feels soft, but it works like fine sandpaper.','People often use the sponge on shoes, tables, walls, and sinks.'],a:3,
+  e:'<b>層次二 次要資訊。</b>使用場合是附加細節，刪掉不影響「這種海綿如何清潔」這個主張。<br><b>為何其他錯：</b>(A)(B) 是原理鏈上的兩個環節，缺一則 These tiny, hard parts 失去指涉；(C) 是段落的定義句。'},
+ {s:'In "These tiny, hard parts can get into small cracks," what do "These tiny, hard parts" refer to?',o:['The dirty spots on the wall','The hard parts inside the melamine sponge','The pieces of fine sandpaper','The cracks on the surface'],a:1,
+  e:'<b>層次四 語言結構（anaphor 代名詞回指）。</b>解題程序：往前找最近的複數名詞組 → 確認語意相容。前一句正是 has many tiny, hard parts inside。<br><b>為何其他錯：</b>(A)(D) 是被清潔的對象，不是清潔的工具；(C) 砂紙只是比喻，不是實際存在的東西。'},
+ {s:'Why is it a good idea to test the sponge on a small area first?',o:['Because the sponge needs hot water to work','Because the sponge may cost a lot of money','Because the sponge might damage the surface','Because the sponge works faster on small areas'],a:2,
+  e:'<b>層次三 訊息與細節邏輯。</b>Because of this 回指前面的 can damage shiny surfaces 與 leave scratches，所以測試是為了先確認會不會傷到表面。<br><b>為何其他錯：</b>(A) 熱水反而加速分解；(B)(D) 文中皆無根據。'},
+ {s:'"Hot water and oil can make the sponge break down faster." Here "break down" means',o:['to stop working like a machine','to become sad and cry','to write something down quickly','to fall apart into smaller pieces'],a:3,
+  e:'<b>層次四 一詞多義 polysemy。</b>break down 有「機器故障」「情緒崩潰」「分解」等義；此處與前文 breaks into smaller pieces 及後文 give off particles 相連，只能取「分解」。<br><b>為何其他錯：</b>(A)(B) 是其他語境下的意思，與微粒釋出無關；(C) 是 write down，字形相近但語意無關。'},
+ {s:'What does the last paragraph mainly do?',o:['It gives a balanced view and advises readers to use the sponge wisely.','It warns readers never to use a melamine sponge again.','It introduces a brand-new cleaning tool.','It repeats the steps of cleaning a wall.'],a:0,
+  e:'<b>層次一 主要資訊。</b>Every cleaning tool has its pros and cons 把兩天的優缺點合併成一個平衡結論，接著以 So, use the sponge wisely 給出行動建議。<br><b>為何其他錯：</b>(B) 文章沒有全盤否定；(C) 沒有新工具；(D) 沒有重述步驟。'}];
+const GSAT=[
+ {s:'【克漏字】The sponge is firm enough ____ into small pieces without falling apart.',o:['to be cut','to cut','cutting','cut'],a:0,
+  e:'adj. + enough to V 的結構中，海綿是「被切」，故不定詞須用被動 to be cut。<br><b>為何其他錯：</b>(B) to cut 表海綿自己去切東西，語意顛倒；(C)(D) 無法接在 enough 之後。'},
+ {s:'【克漏字】____ melamine sponges are popular, they aren’t suitable for every material.',o:['Because','Even though','So','Therefore'],a:1,
+  e:'前後兩句語意相反（受歡迎 vs. 並非都適用），需要讓步連接詞 Even though。<br><b>為何其他錯：</b>Because 表原因；So 與 Therefore 表結果，且 Therefore 為副詞不能直接連接兩個子句。'},
+ {s:'【克漏字】Hot water and oil can make the sponge ____ down faster.',o:['breaks','to break','break','breaking'],a:2,
+  e:'make 為使役動詞，受詞後須接原形動詞。<br><b>為何其他錯：</b>(A) 主動詞一致的觀念用錯位置；(B) 使役 make 不接 to V；(D) 現在分詞用於 keep/get 類動詞，不用於 make。'},
+ {s:'【閱讀測驗】What is the main idea of the article?',o:['A melamine sponge cleans well, but it has clear limits and risks.','A melamine sponge is the cheapest cleaning tool on the market.','A melamine sponge should never be used at home.','A melamine sponge works best with soap and hot water.'],a:0,
+  e:'兩天課文分別承擔 pros 與 cons，末段的 pros and cons 明白把兩者合併，故主旨必須同時含「有效」與「有限制」。<br><b>為何其他錯：</b>(B) 文中未談價格；(C) 與 handy helper 矛盾；(D) 課文說 no soap or cleaner is needed，且熱水會加速分解。'},
+ {s:'【閱讀測驗】Which of the following is NOT true about the melamine sponge?',o:['It can be cut into smaller pieces to clean corners.','It needs only a little water to work.','It can safely be used on cups and bowls.','It may leave scratches on non-stick pans.'],a:2,
+  e:'課文明寫 the sponge should not be used on things like cups and bowls，因為可能釋出有害微粒。<br><b>解題程序：</b>NOT true 題逐一把選項配回原句，特別注意「可以／不可以」這類正反詞被偷換。'},
+ {s:'【閱讀測驗】What is the writer’s attitude toward the melamine sponge?',o:['Completely against it','Balanced and practical','Excited and uncritical','Confused and unsure'],a:1,
+  e:'作者先給優點再給限制，最後以 pros and cons 與 use the sponge wisely 收尾，態度是平衡且重實用。<br><b>為何其他錯：</b>(A) 仍肯定它是 handy helper；(C) 明確列出三項限制；(D) 文中的建議十分明確，沒有不確定的語氣。'}];
+
+/* ---------- TAB4 board ---------- */
+const BOARD=[
+ {t:'原理',q:'How do the tiny, hard parts inside the sponge clean a surface?',o:['They melt the dirt with heat.','They get into small cracks and take the dirt out.','They add soap to the water.','They make the surface shiny with oil.'],a:1,e:'¶1 的因果鏈：外軟內硬 → 鑽入 cracks → take the dirt out，三個環節缺一不可。'},
+ {t:'比喻',q:'The sponge "works like fine sandpaper." What does this comparison tell us?',o:['It is made of paper.','It cleans by rubbing, not by chemicals.','It is very expensive.','It only works on wood.'],a:1,e:'like 引導明喻，重點在「作用方式」相似——靠物理摩擦而非清潔劑，這也解釋了為什麼 no soap or cleaner is needed。'},
+ {t:'短答',q:'短答：Sep. 17 用哪一個片語引出「鞋上的黑印、牆上的指紋」這個例子？（請說出該片語）',ans:'For example',e:'For example 後接完整句子；若要接名詞，須改用 such as 或 like。'},
+ {t:'細節',q:'Why can the sponge reach corners that cloths cannot?',o:['Because it is firm enough to be cut into small pieces','Because it is much bigger than a cloth','Because it can be folded like paper','Because it uses hot water'],a:0,e:'That’s why 是因果訊號，回指前一句的 firm enough to be cut into small pieces without falling apart。'},
+ {t:'轉折',q:'What does the word "However" at the end of Sep. 17 tell readers?',o:['The writer will now give more good points.','The writer will now talk about problems.','The writer has finished the whole article.','The writer is giving an example.'],a:1,e:'However 在此是跨日的樞紐訊號，先肯定 handy helper，再預告 Sep. 18 的三項限制。'},
+ {t:'短答',q:'短答：說出 Sep. 18 依序引出三項限制的三個訊號語。',ans:'Even though… ／ Another limit is that… ／ There is also a safety concern…',e:'三個訊號語形成遞進排序，also 標示「再加一項」，因此安全疑慮必定不是第一項。'},
+ {t:'限制',q:'Why does the sponge get smaller when people use it?',o:['Because water makes it shrink','Because the tiny, hard parts inside come off during cleaning','Because people cut it every day','Because it is washed with soap'],a:1,e:'This happens because 明白給出成因，且與 ¶1 的內部構造互相呼應——同一個結構既是優點也是缺點。'},
+ {t:'安全',q:'Why should the sponge NOT be used on cups and bowls?',o:['Because cups and bowls are too shiny','Because the sponge may give off harmful particles','Because the sponge is too big','Because cups and bowls are cheap'],a:1,e:'熱水與油加速 break down → give off harmful particles → 餐具入口，故列為禁用場合。'},
+ {t:'細節',q:'What should you do right after cleaning with the sponge?',o:['Put the sponge into hot water','Clean the surface again with water','Cut the sponge into pieces','Add oil to the surface'],a:1,e:'末段的 After cleaning, you should clean the surface again with water to wash away any small pieces，目的是移除殘留微粒。'},
+ {t:'短答',q:'短答：Sep. 18 建議先在小範圍測試，理由是什麼？（中文作答即可）',ans:'因為粗糙質地可能刮傷螢幕、車漆、不沾鍋等光滑表面，先小範圍測試可避免整片受損。',e:'Because of this 回指前兩句的 damage shiny surfaces 與 leave scratches，測試是預防性措施。'},
+ {t:'句型',q:'Which sentence uses "enough" correctly?',o:['The sponge is enough firm to be cut.','The sponge is firm enough to be cut.','The sponge is firm to enough be cut.','The sponge enough is firm to be cut.'],a:1,e:'enough 修飾形容詞時必須後置：adj. + enough to V。這是本課最容易出錯的語序。'},
+ {t:'摘要',q:'Which sentence works best as the LAST sentence of a summary of the whole article?',o:['The sponge feels soft but works like fine sandpaper.','Every cleaning tool has its pros and cons, so use the sponge wisely.','Black marks on shoes may disappear after a few wipes.','The sponge has many tiny, hard parts inside.'],a:1,e:'結論句須把兩天的優缺點合併並給出行動建議；其餘三句都是原理或例證，屬主題句或支持論點。'}];
+let POS=-1;
+function drawBoard(){document.getElementById('boardGrid').innerHTML=BOARD.map((b,i)=>
+ `<div class="sq ${i===POS?'here':''} ${S.done['b'+i]?'done':''}">${i+1}<br>${b.t}</div>`).join('');}
+function roll(){const d=1+Math.floor(Math.random()*4);
+ POS=(POS+d)%BOARD.length;
+ document.getElementById('diceMsg').textContent=`🎲 擲出 ${d} 點，前進到第 ${POS+1} 格（${BOARD[POS].t}）`;
+ drawBoard();showBQ();}
+function resetBoard(){POS=-1;S.done={};save();drawBoard();
+ document.getElementById('boardQ').innerHTML='';document.getElementById('diceMsg').textContent='';}
+function showBQ(){const b=BOARD[POS],h=document.getElementById('boardQ');
+ if(b.o){h.innerHTML=`<div class="q" id="bq"><p class="stem">第 ${POS+1} 格｜${b.q}
+   <button class="spk" onclick="readWord('${esc(b.q)}')">🔊</button></p>
+   ${b.o.map((o,j)=>`<button class="opt" onclick="bAns(${j})">(${'ABCD'[j]}) ${o}</button>`).join('')}
+   <button class="btn" onclick="toggleSol('bsol')">📖 參考解答：</button>
+   <div class="sol" id="bsol"><b>正解：(${'ABCD'[b.a]})</b> ${b.o[b.a]}<br>${b.e}</div></div>`;}
+ else{h.innerHTML=`<div class="q" id="bq"><p class="stem">第 ${POS+1} 格｜${b.q}</p>
+   <textarea rows="2" id="bshort"></textarea>
+   <button class="btn" onclick="toggleSol('bsol')">📖 參考解答：</button>
+   <div class="sol" id="bsol"><b>參考答案：</b>${b.ans}<br>${b.e}</div></div>`;}}
+function bAns(j){const b=BOARD[POS],box=document.getElementById('bq');
+ if(box.dataset.done)return;box.dataset.done=1;
+ const btns=box.querySelectorAll('.opt');btns.forEach((x,k)=>{if(k===b.a)x.classList.add('right');});
+ if(j===b.a){btns[j].classList.add('right');award(120);S.done['b'+POS]=1;save();toast('✅ 答對，保留這一格！');}
+ else{btns[j].classList.add('wrong');miss();toast('❌ 這一格先留著，下次再攻');}
+ drawBoard();document.getElementById('bsol').classList.add('show');}
+
+/* ---------- TAB5 mixed ---------- */
+const MIX=[
+ {s:'Why does the article suggest testing the melamine sponge on a small area first?',
+  o:['To check whether the sponge can remove the stain.','To find out whether the sponge could damage the surface.','To make sure the sponge will not release harmful material.','To see whether the sponge will become smaller during cleaning.'],a:1,
+  e:'Because of this 回指前兩句「粗糙質地會損壞光滑表面、會留下刮痕」，測試的目的是確認表面會不會受損。<br><b>為何其他錯：</b>(A) 去汙效果不是這段的重點；(C) 有害微粒出現在第三段，與小範圍測試無關；(D) 海綿碎裂是第二段的限制，與表面受損是兩回事。'},
+ {s:'What is the main purpose of the final paragraph?',
+  o:['To argue that the melamine sponge is the best cleaning tool.','To warn readers about the melamine sponge’s hidden dangers.','To give readers a more balanced view of the melamine sponge.','To explain again how the melamine sponge should be used at home.'],a:2,
+  e:'Every cleaning tool has its pros and cons 把兩天的優點與缺點同時納入，並以 use the sponge wisely 收尾，功能是提供平衡觀點。<br><b>為何其他錯：</b>(A) 文章並未主張它最好；(B) 警告在第三段已完成，末段語氣轉為總結；(D) 末段沒有重述任何使用步驟。'}];
+
+/* ---------- TAB6 life ---------- */
+const POCKET17=[['sponge','海綿','Gently rub the sponge over the dirty spot.'],
+ ['crack','裂縫；裂紋','These tiny, hard parts can get into small cracks on a surface and take the dirt out.'],
+ ['stain','汙跡；汙點','It works especially well against stubborn stains.'],
+ ['fingerprint','指紋','Black marks on shoes and fingerprints on walls may disappear after just a few wipes.'],
+ ['surface','表面','The surface of the new phone feels smooth and cold.'],
+ ['dirt','灰塵；塵垢','Amy’s son came home from school covered in dirt. He said he’d been helping plant flowers in the school’s garden.'],
+ ['stubborn','難以去除的；頑強的','The kitchen now has a stubborn smell after Ben cooked fish for dinner last night.'],
+ ['wipe','擦拭；擦淨','Mason gave his glasses a quick wipe with his shirt.'],
+ ['firm','結實的；堅實的','Rosie likes firm pillows because they support her neck while she sleeps.'],
+ ['handy','方便的；有用的','This handy bottle opener helps Fred open drinks quickly.']];
+const POCKET18=[['texture','質地','Their rough texture can damage shiny surfaces.'],
+ ['scratch','刮痕；劃痕','They can leave scratches on screens, car paint, and non-stick pans.'],
+ ['particle','微粒；顆粒；粒子','When this happens, the sponge may give off harmful particles.'],
+ ['pros and cons','優缺點','Every cleaning tool has its pros and cons.'],
+ ['exception','例外；除外','The melamine sponge is no exception.'],
+ ['suitable','適合的','The weather was sunny and cool, which made the day suitable for eating lunch in the park.'],
+ ['material','材料；原料','These watches cost more because they are made of more expensive materials like gold and silver.'],
+ ['shiny','（表面）發亮的，有光澤的','That car’s paint is so black and shiny. It’s like looking into a black mirror!'],
+ ['advisable','明智的','Early booking is advisable if you want a good seat on the train.'],
+ ['gradually','逐漸地','You should start with a few minutes of exercise, and then gradually add more time every day.'],
+ ['harmful','有害的','You shouldn’t have fast food too often. It is harmful to your body because it usually has too much salt and sugar.']];
+function buildPocket(id,list){document.getElementById(id).innerHTML=list.map(x=>
+ `<p><b>${x[0]}</b> <button class="spk" onclick="readWord('${esc(x[0])}')">🔊</button> <span class="zh">${x[1]}</span><br>
+  ${x[2]} <button class="spk" onclick="readWord('${esc(x[2])}')">🔊</button></p>`).join('');}
+const LIFE=[
+ {s:'Your little brother wants to clean his white sneakers. Is a melamine sponge a good choice?',
+  o:['Yes, because black marks on shoes may disappear after just a few wipes.','No, because shoes are made of metal.','No, because the sponge needs a lot of soap.','Yes, because hot water makes the sponge stronger.'],a:0,
+  e:'課文直接把 shoes 列入常見使用場合，並用 black marks on shoes 當例子。<br><b>為何其他錯：</b>(B) 鞋子並非金屬；(C) 課文說 no soap or cleaner is needed；(D) 熱水反而讓海綿分解更快。'},
+ {s:'Your mother is about to clean a non-stick pan with a melamine sponge. What should you say?',
+  o:['Use more hot water to make it work better.','Stop—it may leave scratches on the pan.','Cut the sponge smaller so it cleans faster.','Add oil first so the pan stays shiny.'],a:1,
+  e:'非沾鍋正是課文點名的三種易受損表面之一（screens, car paint, and non-stick pans）。<br><b>為何其他錯：</b>(A)(D) 熱水與油都會加速分解；(C) 切小只解決「到不了角落」，不解決刮傷問題。'},
+ {s:'After using the sponge on a table where your family eats, what is the safest next step?',
+  o:['Leave the small pieces on the table.','Put the sponge in the oven.','Clean the table again with water to wash away any small pieces.','Rub the table with oil.'],a:2,
+  e:'末段的善後步驟就是再用清水擦一次，目的是沖掉殘留微粒，尤其是會接觸食物的桌面。<br><b>為何其他錯：</b>(A) 微粒可能有害；(B)(D) 課文皆無此建議，且加熱與加油都會加速分解。'}];
+
+/* ---------- init ---------- */
+buildCats();buildPractice();buildCloze();
+mc(document.getElementById('genreQs'),GENRE,'g');
+mc(document.getElementById('fourQs'),FOUR,'f');
+mc(document.getElementById('gsatQs'),GSAT,'s');
+mc(document.getElementById('mixQs'),MIX,'x');
+mc(document.getElementById('lifeQs'),LIFE,'l');
+['A','B','1','2','S17','S18'].forEach(buildSeq);
+buildPocket('pocket17',POCKET17);buildPocket('pocket18',POCKET18);
+const FOCUS=[
+ {s:'Choose the correct one: The students had ____ solving this math problem.',o:['a hard time','hard time','the hard times','hard'],a:0,
+  e:'hard time 在此句型中為可數單數名詞，前面必須加冠詞 a，後方接 V-ing 且省略介系詞 in。<br><b>為何其他錯：</b>(B) 少了冠詞；(C) 複數與冠詞誤用；(D) hard 為形容詞，不能當 have 的受詞。'},
+ {s:'Choose the correct one: Lucas is an experienced cook and has ____ making new dishes.',o:['a little difficulty','little difficulty','little difficulties','few difficulty'],a:1,
+  e:'difficulty 在此句型為不可數名詞，用 little 修飾表「幾乎沒有困難」，且不加冠詞。<br><b>為何其他錯：</b>(A) 不可數名詞在此不加 a；(C) 不可數不加 -s；(D) few 只修飾可數複數。'},
+ {s:'Which sentence is correct?',o:['Andrew has problems in to see the whiteboard.','Andrew has a problems seeing the whiteboard.','Andrew has problems seeing the whiteboard.','Andrew has problem seeing the whiteboard.'],a:2,
+  e:'problem 為可數名詞，可寫成 problems 或 a problem；後方接 V-ing，省略的介系詞 in 不可再補其他介系詞或 to。<br><b>為何其他錯：</b>(A) in 後不能接不定詞；(B) a 與複數並用；(D) 可數單數少了冠詞。'},
+ {s:'Choose the correct one: The game was canceled ____ the heavy rain.',o:['because','because of','so','although'],a:1,
+  e:'空格後為名詞片語 the heavy rain，必須用介系詞片語 because of。<br><b>為何其他錯：</b>(A) because 後須接完整子句（because it rained heavily）；(C) so 表結果；(D) although 表讓步且須接子句。'},
+ {s:'Choose the correct one: This happens ____ the tiny, hard parts inside come off during cleaning.',o:['because of','due to','because','in spite of'],a:2,
+  e:'空格後是完整子句 the tiny, hard parts… come off，須用從屬連接詞 because。<br><b>為何其他錯：</b>(A)(B) 皆為介系詞（片語），後面只能接名詞；(D) 表讓步，語意相反。'}];
+mc(document.getElementById('focusQs'),FOCUS,'p');
+drawBoard();paint();
+document.querySelectorAll('textarea,input.blank').forEach(t=>{
+ if(!t.id)return;
+ if(S.text[t.id])t.value=S.text[t.id];
+ t.addEventListener('input',()=>{S.text[t.id]=t.value;save();});});
+</script>
+</body>
+</html>
